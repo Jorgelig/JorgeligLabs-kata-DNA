@@ -21,23 +21,25 @@ pool:
 steps:
 
 # Build
-#- task: UseDotNet@2
-#  inputs:
-#    version: $(dotNetVersion)
-#    includePreviewVersions: true
-#    projects: '$(project1)/$(project1).csproj'
-#    publishWebProjects: true
-#    zipAfterPublish: true
-#- script: dotnet publish --configuration $(buildConfiguration)
-#  displayName: 'Build .NET 6 Application'
-
-- task: DotNetCoreCLI@2
+- task: UseDotNet@2
+  displayName: 'Build .NET 6 Application'
   inputs:
-    packageType: 'sdk'
     version: $(dotNetVersion)
     includePreviewVersions: true
-    command: 'build'
+    performMultiLevelLookup: true
     projects: '$(project1)/$(project1).csproj'
+    publishWebProjects: true
+    zipAfterPublish: true
+- script: dotnet publish --configuration $(buildConfiguration)
+  
+
+#- task: DotNetCoreCLI@2
+#  inputs:
+#    packageType: 'sdk'
+#    version: $(dotNetVersion)
+#    includePreviewVersions: true
+#    command: 'build'
+#    projects: '$(project1)/$(project1).csproj'
 
 
 # Run test
