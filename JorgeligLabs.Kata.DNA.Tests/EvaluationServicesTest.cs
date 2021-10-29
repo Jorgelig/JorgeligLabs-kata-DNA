@@ -113,7 +113,7 @@ namespace JorgeligLabs.Kata.DNA.TDD.Test
         [Fact]
         public void IsValidSecuence_MutationSecuenceIsValid()
         {
-            var isValidSecuence = _target.IsValidSecuence(WithoutMutationSecuence) ?? false;
+            var isValidSecuence = _target.IsValidSecuence(WithoutMutationSecuence);
             isValidSecuence.Should().BeTrue();
         }
 
