@@ -5,4 +5,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Bson" Version="2.13.2" />
+  </ItemGroup>
+
 </Project>

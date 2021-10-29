@@ -13,4 +13,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\JorgeligLabs.Kata.Core\JorgeligLabs.Kata.DNA.Core.csproj" />
+  </ItemGroup>
+
 </Project>
