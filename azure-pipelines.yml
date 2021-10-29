@@ -18,17 +18,24 @@ variables:
 pool:
   vmImage: ubuntu-latest
 
-# Build
 steps:
-- task: UseDotNet@2
+
+# Build
+#- task: UseDotNet@2
+#  inputs:
+#    version: $(dotNetVersion)
+#    includePreviewVersions: true
+#    projects: '$(project1)/$(project1).csproj'
+#    publishWebProjects: true
+#    zipAfterPublish: true
+#- script: dotnet publish --configuration $(buildConfiguration)
+#  displayName: 'Build .NET 6 Application'
+
+- task: DotNetCoreCLI@2
   inputs:
-    version: $(dotNetVersion)
-    includePreviewVersions: true
-    projects: '$(project1)/$(project1).csproj'
-    publishWebProjects: true
-    zipAfterPublish: true
-- script: dotnet publish --configuration $(buildConfiguration)
-  displayName: 'Build .NET 6 Application'
+    command: 'build'
+    projects: '$(project1)/$(project1).csproj''
+
 
 # Run test
 - task: DotNetCoreCLI@2
