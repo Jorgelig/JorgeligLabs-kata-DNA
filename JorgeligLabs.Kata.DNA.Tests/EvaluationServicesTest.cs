@@ -3,7 +3,7 @@ using JorgeligLabs.Kata.DNA.Core.Services;
 using Xunit;
 using FluentAssertions;
 
-namespace JorgeligLabs.Kata.DNA.TDD
+namespace JorgeligLabs.Kata.DNA.TDD.Test
 {
     public class EvaluationServicesTest
     {
