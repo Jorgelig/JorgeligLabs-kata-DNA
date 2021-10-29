@@ -34,7 +34,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: '$(project1)/$(project1).csproj''
+    projects: '$(project1)/$(project1).csproj'
 
 
 # Run test
