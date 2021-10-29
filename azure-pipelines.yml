@@ -13,6 +13,7 @@ variables:
   targetRuntime: 'linux-x64'
   azureSPNName: 'Kata-DNA' #get it from your AzureDevOps portal
   azureAppServiceName: 'Kata-DNA-App' #get it from your Azure portal
+  project1: JorgeligLabs.Kata.DNA.Api
 
 pool:
   vmImage: ubuntu-latest
@@ -23,6 +24,7 @@ steps:
   inputs:
     version: $(dotNetVersion)
     includePreviewVersions: true
+    projects: '$(project1)/$(project1).csproj'
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'Build .NET 6 Application'
 
