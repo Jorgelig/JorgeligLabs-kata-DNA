@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JorgeligLabs.Kata.DNA.TDD.T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JorgeligLabs.Kata.DNA.Api", "JorgeligLabs.Kata.DNA.Api\JorgeligLabs.Kata.DNA.Api.csproj", "{4F1480BB-8DF5-478D-B1D7-369FF7589BDF}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{EB4BDD5D-96C8-499A-A917-7C14D4BB1984}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{4F1480BB-8DF5-478D-B1D7-369FF7589BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F1480BB-8DF5-478D-B1D7-369FF7589BDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F1480BB-8DF5-478D-B1D7-369FF7589BDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB4BDD5D-96C8-499A-A917-7C14D4BB1984}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB4BDD5D-96C8-499A-A917-7C14D4BB1984}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB4BDD5D-96C8-499A-A917-7C14D4BB1984}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB4BDD5D-96C8-499A-A917-7C14D4BB1984}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
