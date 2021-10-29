@@ -22,5 +22,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.MapGet("/", ((Func<string>) (() => "Welcome to Mutant Api")));
 
 app.Run();
