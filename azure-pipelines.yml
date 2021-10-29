@@ -33,6 +33,8 @@ steps:
 
 - task: DotNetCoreCLI@2
   inputs:
+    version: $(dotNetVersion)
+    includePreviewVersions: true
     command: 'build'
     projects: '$(project1)/$(project1).csproj'
 
