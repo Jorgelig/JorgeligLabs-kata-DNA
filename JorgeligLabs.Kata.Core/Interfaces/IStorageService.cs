@@ -4,9 +4,15 @@ using System.Text;
 
 namespace JorgeligLabs.Kata.DNA.Core.Interfaces
 {
+    public class StorageServiceOptions
+    {
+        public string MutationCollectionName { get; set; }
+        public string ConnectionString { get; set; }
+        public string DatabaseName { get; set; }   
+    }
     public interface IStorageService
     {
-        public void InsertOrUpdate(IMutationModel model);
+        public IMutationModel InsertOrUpdate(string[] dna, bool isMutant);
         public IMutationModel[] GetMutants();
         public IMutationModel[] GetHumans();
     }

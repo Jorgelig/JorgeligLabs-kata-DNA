@@ -1,4 +1,5 @@
 using JorgeligLabs.Kata.Core.Interfaces;
+using JorgeligLabs.Kata.DNA.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JorgeligLabs.Kata.DNA.Api.Controllers
@@ -10,11 +11,15 @@ namespace JorgeligLabs.Kata.DNA.Api.Controllers
 
         private readonly ILogger<MutantController> _logger;
         private readonly IEvaluationService _evaluationService;
+        private readonly IStorageService _storageService;
 
-        public MutantController(ILogger<MutantController> logger, IEvaluationService evaluationService)
+        public MutantController(ILogger<MutantController> logger, 
+            IEvaluationService evaluationService,
+            IStorageService storage)
         {
             _logger = logger;
             _evaluationService = evaluationService;
+            _storageService = storage;
         }
 
         [HttpPost("/mutation")]
@@ -27,7 +32,7 @@ namespace JorgeligLabs.Kata.DNA.Api.Controllers
             try
             {
                 var isMutation = _evaluationService.HasMutation(request?.DNA);
-
+                var item = _storageService.InsertOrUpdate(request.DNA, isMutation);
 
                 return isMutation
                     ? new StatusCodeResult(StatusCodes.Status403Forbidden)
@@ -50,10 +55,13 @@ namespace JorgeligLabs.Kata.DNA.Api.Controllers
         [HttpGet("/stats")]
         public MutantStatsResponse Get()
         {
+            var mutans = _storageService.GetMutants();
+            var humans = _storageService.GetHumans();
+
             return new MutantStatsResponse
             {
-                CountMutations = 40,
-                CountNoMutation = 100
+                CountMutations = mutans.Length,
+                CountNoMutation = humans.Length,
             };
         }
     }

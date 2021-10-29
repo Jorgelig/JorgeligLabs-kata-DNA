@@ -8,7 +8,6 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["JorgeligLabs.Kata.DNA.Api/JorgeligLabs.Kata.DNA.Api.csproj", "JorgeligLabs.Kata.DNA.Api/"]
-COPY ["JorgeligLabs.Kata.Core/JorgeligLabs.Kata.DNA.Core.csproj", "JorgeligLabs.Kata.Core/"]
 RUN dotnet restore "JorgeligLabs.Kata.DNA.Api/JorgeligLabs.Kata.DNA.Api.csproj"
 COPY . .
 WORKDIR "/src/JorgeligLabs.Kata.DNA.Api"
