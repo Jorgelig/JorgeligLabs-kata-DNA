@@ -1,3 +1,3 @@
 ﻿using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("JorgeligLabs.Kata.DNA.TDD")]
+[assembly: InternalsVisibleTo("JorgeligLabs.Kata.DNA.TDD.Test")]
