@@ -17,7 +17,7 @@ namespace JorgeligLabs.Kata.DNA.Api.Controllers
             _evaluationService = evaluationService;
         }
 
-        [HttpPost(Name = "mutation")]
+        [HttpPost("/mutation")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public IActionResult Post([FromBody]MutationRequest? request)
@@ -47,7 +47,7 @@ namespace JorgeligLabs.Kata.DNA.Api.Controllers
 
         }
 
-        [HttpGet(Name = "stats")]
+        [HttpGet("/stats")]
         public MutantStatsResponse Get()
         {
             return new MutantStatsResponse
