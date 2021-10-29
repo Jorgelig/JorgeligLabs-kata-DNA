@@ -25,7 +25,9 @@ steps:
     version: $(dotNetVersion)
     includePreviewVersions: true
     projects: '$(project1)/$(project1).csproj'
-- script: dotnet build --configuration $(buildConfiguration)
+    publishWebProjects: true
+    zipAfterPublish: true
+- script: dotnet publish --configuration $(buildConfiguration)
   displayName: 'Build .NET 6 Application'
 
 # Run test
