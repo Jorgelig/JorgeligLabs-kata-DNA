@@ -1,0 +1,49 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+variables:
+  buildConfiguration: 'Release'
+  dotNetFramework: 'net6.0'
+  dotNetVersion: '6.0.x'
+  targetRuntime: 'linux-x64'
+  azureSPNName: 'Kata-DNA' #get it from your AzureDevOps portal
+  azureAppServiceName: 'Kata-DNA-App' #get it from your Azure portal
+
+pool:
+  vmImage: ubuntu-latest
+
+# Build
+steps:
+- task: UseDotNet@2
+  inputs:
+    version: $(dotNetVersion)
+    includePreviewVersions: true
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'Build .NET 6 Application'
+
+# Publish
+- task: DotNetCoreCLI@2
+  inputs:
+    command: publish
+    publishWebProjects: True
+    arguments: '--configuration $(BuildConfiguration) --framework $(dotNetFramework) --runtime $(targetRuntime) --self-contained --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: True
+
+# Package
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)' 
+    artifactName: 'JorgeligLabs.Kata.DNA.API'
+
+#Publish it to the Azure App Service
+- task: AzureWebApp@1
+  inputs:
+    appType: webAppLinux
+    azureSubscription: $(azureSPNName) #this is the name of the SPN
+    appName: $(azureAppServiceName) #App Service's unique name
+    package: $(Build.ArtifactStagingDirectory)/**/*.zip
