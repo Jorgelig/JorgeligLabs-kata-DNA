@@ -30,7 +30,6 @@ steps:
     projects: '$(project1)/$(project1).csproj'
     publishWebProjects: true
     zipAfterPublish: true
-- script: dotnet publish --configuration $(buildConfiguration)
   
 
 #- task: DotNetCoreCLI@2
