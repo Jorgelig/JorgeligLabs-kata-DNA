@@ -33,7 +33,7 @@ steps:
     command: 'test'
     arguments: '--configuration $(buildConfiguration) --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura'
     publishTestResults: true
-    projects: 'MyTestLibrary' # update with your test project directory
+    projects: '**/*Test.csproj' # update with your test project directory
 
 # Public test
 - task: PublishCodeCoverageResults@1
@@ -57,9 +57,9 @@ steps:
     artifactName: 'JorgeligLabs.Kata.DNA.API'
 
 #Publish it to the Azure App Service
-- task: AzureWebApp@1
-  inputs:
-    appType: webAppLinux
-    azureSubscription: $(azureSPNName) #this is the name of the SPN
-    appName: $(azureAppServiceName) #App Service's unique name
-    package: $(Build.ArtifactStagingDirectory)/**/*.zip
+#- task: AzureWebApp@1
+#  inputs:
+#    appType: webAppLinux
+#    azureSubscription: $(azureSPNName) #this is the name of the SPN
+#    appName: $(azureAppServiceName) #App Service's unique name
+#    package: $(Build.ArtifactStagingDirectory)/**/*.zip
