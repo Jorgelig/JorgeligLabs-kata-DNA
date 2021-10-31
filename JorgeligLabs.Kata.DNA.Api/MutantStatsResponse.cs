@@ -10,13 +10,16 @@ namespace JorgeligLabs.Kata.DNA.Api
 
         public int CountNoMutation { get;set; }
 
-        public decimal Ratio =>
-             CountNoMutation == 0 && CountMutations > 0
-             ? CountMutations
-             : RatioValue(CountMutations, CountNoMutation);
+        internal int Total => CountMutations + CountNoMutation;
+
+        public decimal Ratio => Total == 0 
+            ? 0 
+            : CountNoMutation == 0 
+                ? 1
+                : RatioValue(CountMutations, CountNoMutation);
         private decimal RatioValue(int mutantsCount, int humansCount)
         {
-            var round = Math.Round(Convert.ToDecimal(mutantsCount) / Convert.ToDecimal(humansCount), 2);
+            var round = Math.Round(Convert.ToDecimal(mutantsCount) / Convert.ToDecimal(humansCount), 2);  
             return round;
         }
 

@@ -77,14 +77,14 @@ namespace JorgeligLabs.Kata.DNA.TDD.Test
         [Fact]
         public void IsValidMatrix_ValidMatrix()
         {
-            var isValid = _target.IsValidMatrix(SymetricMatrix);
+            var isValid = _target.IsSymetricMatrix(SymetricMatrix);
             isValid.Should().BeTrue();  
         }
 
         [Fact]
         public void IsValidMatrix_InvalidMatrix()
         {
-            var isValid = _target.IsValidMatrix(AsymetricMatrix);
+            var isValid = _target.IsSymetricMatrix(AsymetricMatrix);
             isValid.Should().BeFalse();
         }
 

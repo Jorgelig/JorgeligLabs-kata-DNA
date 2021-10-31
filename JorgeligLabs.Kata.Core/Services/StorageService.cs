@@ -5,10 +5,12 @@ using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace JorgeligLabs.Kata.DNA.Core.Services
 {
+    [ExcludeFromCodeCoverage]
     public class StorageService : IStorageService
     {
         private static MongoClient _client;
@@ -68,7 +70,7 @@ namespace JorgeligLabs.Kata.DNA.Core.Services
             return entity;
         }
     }
-
+    [ExcludeFromCodeCoverage]
     public class MutationModel  : IMutationModel
     {
         [BsonId]

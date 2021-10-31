@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace JorgeligLabs.Kata.DNA.Core.Interfaces
 {
+    [ExcludeFromCodeCoverage]
     public class StorageServiceOptions
     {
         public string MutationCollectionName { get; set; }
