@@ -19,7 +19,7 @@ namespace JorgeligLabs.Kata.DNA.Api
                 : RatioValue(CountMutations, CountNoMutation);
         private decimal RatioValue(int mutantsCount, int humansCount)
         {
-            var round = Convert.ToDecimal(mutantsCount) / Convert.ToDecimal(humansCount);            
+            var round = Math.Round(Convert.ToDecimal(mutantsCount) / Convert.ToDecimal(humansCount), 2);  
             return round;
         }
 

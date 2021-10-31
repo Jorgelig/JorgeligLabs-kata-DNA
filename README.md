@@ -93,4 +93,5 @@ Proyecto que detecta si una persona tiene diferencias genéticas basándose en su 
 6. Usar access_token generado en los Headers para los end point /mutation y /stats
 
 
+## Coverage
 
