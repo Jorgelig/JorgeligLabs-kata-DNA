@@ -82,6 +82,8 @@ Proyecto que detecta si una persona tiene diferencias genéticas basándose en s
              -H 'accept: */*'
     ```
 6. Usar access_token generado en los Headers para los end point /mutation y /stats
+7. ![image](https://user-images.githubusercontent.com/581672/139580127-5764cdbe-bd45-4701-b253-0e6e03d08814.png)
+
 
 ## Pasos para hacer una prueba en linea
 1. Abrir swagger: https://jorgeliglabs-kata-dna.azurewebsites.net/swagger/index.html
@@ -95,4 +97,7 @@ Proyecto que detecta si una persona tiene diferencias genéticas basándose en s
 
 
 ## Coverage
+![image](https://user-images.githubusercontent.com/581672/139580084-4b3ebf80-913d-4c28-801e-8461d9796b21.png)
+![image](https://user-images.githubusercontent.com/581672/139580091-9df30c58-341e-40f3-9682-cefe70f5e1de.png)
+
 
