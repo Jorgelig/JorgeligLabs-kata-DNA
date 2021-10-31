@@ -10,9 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSingleton<IEvaluationService, EvaluationService>();
 builder.Services.AddSingleton<IStorageService, StorageService>();
-
+builder.Services.AddHttpClient();
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -45,8 +45,8 @@ builder.Services.AddAuthentication(options =>
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddJwtBearer(options =>
 {
-    options.Authority = "https://dev-jorgelig.us.auth0.com/";
-    options.Audience = "jorgeliglabs-kata-adn-api";
+    options.Authority = builder.Configuration.GetSection("AuthenticationOptions:Authority").Value; 
+    options.Audience = builder.Configuration.GetSection("AuthenticationOptions:Audience").Value;
 });
 
 

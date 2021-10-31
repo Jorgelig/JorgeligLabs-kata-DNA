@@ -32,7 +32,6 @@ namespace JorgeligLabs.Kata.DNA.Core.Services
         }
 
         internal bool IsSymetricMatrix(string[] secuence) => secuence?.Length == secuence?[0]?.Length;
-        internal bool IsValidMatrix(string[] secuence) => IsSymetricMatrix(secuence);
 
         internal string? GetFirstHorizontalLine(string[] secuence) => GetHorizontalLine(secuence, 0);
         internal string? GetHorizontalLine(string[] secuence, int rowIndex) => secuence[rowIndex];
@@ -134,7 +133,7 @@ namespace JorgeligLabs.Kata.DNA.Core.Services
 
         public bool HasMutation(string[] dna)
         {
-            if(!IsValidMatrix(dna) || !IsValidSecuence(dna)) throw new ArgumentException(nameof(dna));
+            if(!IsSymetricMatrix(dna) || !IsValidSecuence(dna)) throw new ArgumentException(nameof(dna));
             var mutationsCount = HorizontalMutationsCount(dna) + VerticalMutationsCount(dna) + ObliqueMutationsCount(dna);
             return mutationsCount > 0;
         }

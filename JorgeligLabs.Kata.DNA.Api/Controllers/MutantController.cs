@@ -27,7 +27,9 @@ namespace JorgeligLabs.Kata.DNA.Api.Controllers
         [HttpPost("/mutation")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        public IActionResult Post([FromBody]MutationRequest? request)
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public IActionResult Post([FromBody]MutationRequest? request)
         {
             if(request == null || request?.DNA?.Count() == 0 || request?.DNA.Count(i => string.IsNullOrWhiteSpace(i)) > 0) 
                 return new StatusCodeResult(StatusCodes.Status403Forbidden);
@@ -43,7 +45,7 @@ namespace JorgeligLabs.Kata.DNA.Api.Controllers
             catch (ArgumentException ex)
             {
                 _logger.LogError(ex?.InnerException?.Message ?? ex?.Message);
-                return new StatusCodeResult(StatusCodes.Status403Forbidden);
+                return new StatusCodeResult(StatusCodes.Status400BadRequest);
             }
             catch (Exception ex)
             {
@@ -55,17 +57,21 @@ namespace JorgeligLabs.Kata.DNA.Api.Controllers
         }
 
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [HttpGet("/stats")]
         public MutantStatsResponse Get()
         {
             var mutans = _storageService.GetMutants();
             var humans = _storageService.GetHumans();
 
-            return new MutantStatsResponse
+            var result = new MutantStatsResponse
             {
                 CountMutations = mutans.Length,
                 CountNoMutation = humans.Length,
             };
+
+            return result;
         }
     }
 }
