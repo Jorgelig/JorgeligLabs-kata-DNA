@@ -1,5 +1,6 @@
 using JorgeligLabs.Kata.Core.Interfaces;
 using JorgeligLabs.Kata.DNA.Core.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JorgeligLabs.Kata.DNA.Api.Controllers
@@ -22,6 +23,7 @@ namespace JorgeligLabs.Kata.DNA.Api.Controllers
             _storageService = storage;
         }
 
+        [Authorize]
         [HttpPost("/mutation")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
@@ -52,6 +54,7 @@ namespace JorgeligLabs.Kata.DNA.Api.Controllers
 
         }
 
+        [Authorize]
         [HttpGet("/stats")]
         public MutantStatsResponse Get()
         {
