@@ -44,6 +44,7 @@ Proyecto que detecta si una persona tiene diferencias genéticas basándose en su 
 - Hosting: Azure App Services
 - Proveedor de identidad: Auth0
 - CI/CD: Azure DevOps
+- Pruebas Unitarias: xUnit
 
 ## End points disponibles
 **URL**     /mutation
