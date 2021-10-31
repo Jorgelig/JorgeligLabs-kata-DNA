@@ -99,5 +99,7 @@ Proyecto que detecta si una persona tiene diferencias genéticas basándose en s
 ## Coverage
 ![image](https://user-images.githubusercontent.com/581672/139580084-4b3ebf80-913d-4c28-801e-8461d9796b21.png)
 ![image](https://user-images.githubusercontent.com/581672/139580091-9df30c58-341e-40f3-9682-cefe70f5e1de.png)
+![image](https://user-images.githubusercontent.com/581672/139580257-559390b6-56ad-4fb8-9dfd-65b98842251d.png)
+
 
 
